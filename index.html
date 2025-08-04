@@ -235,20 +235,13 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
         }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-family: 'Open Sans', sans-serif;
+        
+        .contact-form {
+            text-align: center;
         }
-
-        .contact-form textarea {
-            resize: vertical;
+        
+        .contact-form .btn-primary {
+            margin-top: 20px;
         }
 
         .contact-details h3 {
@@ -422,14 +415,13 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2>Get in Touch</h2>
-            <p>We'd love to hear from you. Please fill out the form below or use our contact details to reach us.</p>
+            <p>For inquiries, please click the button below to message us directly on WhatsApp, or send us an email.</p>
             <div class="contact-content">
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="6"></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                <div class="contact-form">
+                    <a href="https://wa.me/2347030899566?text=Hello%20Ayo%20Prudent%20Nigeria%20Limited,%20I%20have%20an%20inquiry%20from%20your%20website." class="btn btn-primary" target="_blank">Message us on WhatsApp</a>
+                    
+                    <a href="mailto:info@ayoprudentnigeria.com" class="btn btn-primary">Send an Email</a>
+                </div>
                 <div class="contact-details">
                     <h3>Contact Information</h3>
                     <p><strong>Email:</strong> info@ayoprudentnigeria.com </p>
