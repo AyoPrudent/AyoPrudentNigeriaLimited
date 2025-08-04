@@ -6,37 +6,53 @@
     <title>Ayo Prudent Nigeria Limited | Diversified Business & Services</title>
     <meta name="description" content="Ayo Prudent Nigeria Limited is a leading enterprise in Oil & Gas, Supermarket, Eatery, Lubricant sales, and Gift Items. Discover our diverse services and quality products.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Basic Reset */
-        body, h1, h2, h3, p, ul, li {
+        /* A more professional and clean-looking color palette */
+        :root {
+            --primary-blue: #002D62; /* A strong, deep blue */
+            --secondary-gold: #FFC000; /* A vibrant, professional gold */
+            --dark-gray: #333333;
+            --light-gray: #f9f9f9;
+            --mid-gray: #666666;
+            --white: #ffffff;
+            --light-blue-bg: #e6f0ff;
+        }
+
+        /* --- Basic Reset and Global Styles --- */
+        body, h1, h2, h3, p, ul, li, a, button {
             margin: 0;
             padding: 0;
             border: 0;
             font-size: 100%;
-            font: inherit;
             vertical-align: baseline;
+            box-sizing: border-box; /* Ensures padding and border don't affect width */
         }
-
+        
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            overflow-x: hidden; /* Prevents horizontal scroll on small screens */
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header Styling */
+        /* --- Header Styling --- */
         header {
-            background-color: #1e3a8a; /* A deep blue */
-            color: white;
+            background-color: var(--primary-blue);
+            color: var(--white);
             padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100; /* Keeps the header on top of other content */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         header .container {
@@ -46,8 +62,9 @@
         }
 
         header h1 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-weight: 700;
+            font-size: 1.5rem;
         }
 
         header nav ul {
@@ -56,133 +73,174 @@
         }
 
         header nav ul li {
-            margin-left: 20px;
+            margin-left: 30px;
         }
 
         header nav ul li a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-weight: 600;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            position: relative;
+        }
+        
+        /* Subtle hover effect for navigation links */
+        header nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary-gold);
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        header nav ul li a:hover::after {
+            transform: scaleX(1);
         }
 
-        header nav ul li a:hover {
-            color: #fdd835; /* A golden yellow for hover */
-        }
-
-        /* Hero Section Styling */
+        /* --- Hero Section Styling --- */
         .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('hero-image.jpg'); /* Replace 'hero-image.jpg' */
+            background: linear-gradient(rgba(0, 45, 98, 0.7), rgba(0, 45, 98, 0.7)), url('hero-image.jpg');
             background-size: cover;
             background-position: center;
-            color: white;
+            color: var(--white);
             text-align: center;
-            padding: 100px 0;
+            padding: 150px 0; /* More vertical space for a grander feel */
+            min-height: 500px;
+            display: flex;
+            align-items: center;
         }
-
+        
         .hero .container {
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .hero h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 20px;
         }
 
         .hero p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
         }
 
         .btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 15px 30px;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            border-radius: 50px; /* Pill-shaped buttons are very modern */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px); /* subtle lift on hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .btn-primary {
-            background-color: #fdd835; /* Golden yellow */
-            color: #1e3a8a; /* Deep blue */
-            font-weight: 600;
+            background-color: var(--secondary-gold);
+            color: var(--primary-blue);
         }
 
         .btn-primary:hover {
-            background-color: #fbc02d;
+            background-color: #ffda6a;
         }
 
-        /* About Us Section Styling */
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--secondary-gold);
+            color: var(--secondary-gold);
+            margin-left: 20px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-gold);
+            color: var(--primary-blue);
+        }
+
+        /* --- Section Styling (Consistent Padding) --- */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-heading {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* --- About Us Section Styling --- */
         .about-us {
-            padding: 60px 0;
-            background-color: white;
+            background-color: var(--white);
         }
-
-        .about-us h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2em;
-            color: #1e3a8a;
-            margin-bottom: 30px;
+        
+        .about-us p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
             text-align: center;
         }
 
-        .about-us .container p {
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        /* Services Section Styling */
+        /* --- Services Section Styling --- */
         .services {
-            padding: 60px 0;
-            background-color: #e9f1fa; /* A light blue background */
-        }
-
-        .services h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2em;
-            color: #1e3a8a;
-            margin-bottom: 30px;
-            text-align: center;
+            background-color: var(--light-blue-bg);
         }
 
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
         }
 
         .service-item {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Softer, more professional shadow */
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
         .service-item h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: #2e7d32; /* A green color for service titles */
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--primary-blue);
             margin-bottom: 15px;
+            font-size: 1.4rem;
         }
-
+        
         .service-item p {
-            color: #555;
+            color: var(--mid-gray);
+            font-size: 1rem;
         }
 
-        /* Testimonials Section Styling */
+        /* --- Testimonials Section Styling --- */
         .testimonials {
-            padding: 60px 0;
-            background-color: white;
+            background-color: var(--white);
         }
-
-        .testimonials h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2em;
-            color: #1e3a8a;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
+        
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -190,73 +248,95 @@
         }
 
         .testimonial-item {
-            background-color: #f9f9f9;
+            background-color: var(--light-gray);
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             font-style: italic;
-            color: #666;
+            color: var(--mid-gray);
+            border-left: 4px solid var(--secondary-gold); /* A subtle accent */
         }
-
+        
         .testimonial-item blockquote {
+            font-size: 1.1rem;
             margin-bottom: 20px;
+            line-height: 1.8;
+            position: relative;
         }
-
+        
+        /* Adds a quote icon for a nice touch */
+        .testimonial-item blockquote::before {
+            content: '“';
+            font-size: 4rem;
+            font-family: serif;
+            color: var(--secondary-gold);
+            position: absolute;
+            left: -20px;
+            top: -20px;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
         .client-name {
             font-style: normal;
-            font-weight: bold;
-            color: #333;
+            font-weight: 600;
+            color: var(--dark-gray);
             text-align: right;
+            margin-top: 15px;
         }
 
         .testimonial-cta {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
             font-size: 1.1em;
-            color: #555;
+            color: var(--mid-gray);
         }
 
-        /* Contact Section Styling */
+        /* --- Contact Section Styling --- */
         .contact {
-            padding: 60px 0;
-            background-color: #d0e8fa; /* Another light blue */
+            background-color: var(--primary-blue);
+            color: var(--white);
         }
 
-        .contact h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2em;
-            color: #1e3a8a;
-            margin-bottom: 30px;
+        .contact .section-heading {
+            color: var(--white);
+        }
+        
+        .contact p {
             text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
         }
 
         .contact-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
+            align-items: center;
         }
         
         .contact-form {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
         
-        .contact-form .btn-primary {
-            margin-top: 20px;
-        }
-
         .contact-details h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: #1e3a8a;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
             margin-bottom: 20px;
+            color: var(--secondary-gold);
         }
 
         .contact-details p {
             line-height: 1.7;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            text-align: left;
+            font-size: 1rem;
         }
-
+        
         .contact-details strong {
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .social-links {
@@ -266,43 +346,35 @@
         .social-links p {
             margin-bottom: 10px;
             font-weight: 600;
+            text-align: left;
         }
 
         .social-links a {
             display: inline-block;
-            margin-right: 10px;
-        }
-
-        .social-links img {
-            width: 30px;
-            height: 30px;
-            border-radius: 5px;
+            margin-right: 15px;
             opacity: 0.8;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
-
-        .social-links img:hover {
+        
+        .social-links a:hover {
             opacity: 1;
+            transform: scale(1.1);
         }
 
-        /* Footer Styling */
+        /* --- Footer Styling --- */
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #1a1a1a;
+            color: #ccc;
             text-align: center;
             padding: 20px 0;
-            font-size: 0.9em;
+            font-size: 0.9rem;
         }
 
-        footer .container {
-            padding: 0 20px;
-        }
-
-        /* Media Queries for Responsiveness */
+        /* --- Media Queries for Responsiveness --- */
         @media (max-width: 768px) {
             header .container {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
             }
 
             header nav {
@@ -311,22 +383,53 @@
 
             header nav ul {
                 flex-direction: column;
+                text-align: center;
             }
 
             header nav ul li {
                 margin: 10px 0;
             }
-
+            
+            .hero {
+                padding: 100px 0;
+            }
+            
             .hero h2 {
-                font-size: 2em;
+                font-size: 2.5rem;
             }
 
             .hero p {
-                font-size: 1em;
+                font-size: 1.1rem;
             }
-
+            
+            .section-heading {
+                font-size: 2rem;
+            }
+            
             .contact-content {
                 grid-template-columns: 1fr;
+            }
+            
+            .contact-details {
+                text-align: center;
+            }
+            
+            .contact-details p {
+                text-align: center;
+            }
+            
+            .social-links p {
+                text-align: center;
+            }
+            
+            .social-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-links a {
+                margin: 5px;
             }
         }
     </style>
@@ -351,21 +454,22 @@
         <div class="container">
             <h2>Your Trusted Partner in Diverse Industries</h2>
             <p>Empowering growth and delivering excellence across Oil & Gas, Retail, Hospitality, and Lubricant sectors in Nigeria.</p>
-            <a href="#contact" class="btn btn-primary">Get in Touch Today</a>
+            <a href="#services" class="btn btn-primary">Our Services</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
         </div>
     </section>
 
     <section id="about" class="about-us">
         <div class="container">
-            <h2>About Ayo Prudent Nigeria Limited</h2>
+            <h2 class="section-heading">About Ayo Prudent Nigeria Limited</h2>
             <p>Ayo Prudent Nigeria Limited is a multifaceted enterprise dedicated to delivering excellence and innovation across various critical sectors of the Nigerian economy. With a steadfast commitment to quality, integrity, and unparalleled customer satisfaction, we aim to be a trusted partner in your success.</p>
-            <p>Our diverse portfolio allows us to leverage extensive expertise and resources, creating synergistic opportunities that benefit all our stakeholders. We are driven by a vision to contribute significantly to the economic development of the nation through sustainable and impactful business practices.</p>
+            <p style="margin-top: 20px;">Our diverse portfolio allows us to leverage extensive expertise and resources, creating synergistic opportunities that benefit all our stakeholders. We are driven by a vision to contribute significantly to the economic development of the nation through sustainable and impactful business practices.</p>
         </div>
     </section>
 
     <section id="services" class="services">
         <div class="container">
-            <h2>Our Diverse Business Ventures</h2>
+            <h2 class="section-heading">Our Diverse Business Ventures</h2>
             <div class="service-grid">
                 <div class="service-item">
                     <h3>Oil & Gas</h3>
@@ -393,7 +497,7 @@
 
     <section id="testimonials" class="testimonials">
         <div class="container">
-            <h2>What Our Clients Say</h2>
+            <h2 class="section-heading">What Our Clients Say</h2>
             <div class="testimonial-grid">
                 <div class="testimonial-item">
                     <blockquote>"Ayo Prudent's commitment to quality in their Oil & Gas services is truly commendable. They are a reliable partner we trust."</blockquote>
@@ -414,13 +518,12 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Get in Touch</h2>
-            <p>For inquiries, please click the button below to message us directly on WhatsApp, or send us an email.</p>
+            <h2 class="section-heading">Get in Touch</h2>
+            <p>For inquiries, please use the links below to connect with us directly or view our contact information.</p>
             <div class="contact-content">
                 <div class="contact-form">
                     <a href="https://wa.me/2347030899566?text=Hello%20Ayo%20Prudent%20Nigeria%20Limited,%20I%20have%20an%20inquiry%20from%20your%20website." class="btn btn-primary" target="_blank">Message us on WhatsApp</a>
-                    
-                    <a href="mailto:ayoprudentnigerialimited@gmail.com" class="btn btn-primary">Send an Email</a>
+                    <a href="mailto:ayoprudentnigerialimited@gmail.com" class="btn btn-secondary">Send an Email</a>
                 </div>
                 <div class="contact-details">
                     <h3>Contact Information</h3>
@@ -430,8 +533,8 @@
                     <p><strong>Registration No:</strong> RC 775187</p>
                     <div class="social-links">
                         <p>Connect with us:</p>
-                        <a href="#" target="_blank" aria-label="Ayo Prudent on Facebook"><img src="https://via.placeholder.com/30/3b5998/ffffff?text=F" alt="Facebook icon"></a>
-                        <a href="#" target="_blank" aria-label="Ayo Prudent on LinkedIn"><img src="https://via.placeholder.com/30/0077B5/ffffff?text=L" alt="LinkedIn icon"></a>
+                        <a href="#" target="_blank" aria-label="Ayo Prudent on Facebook"><img src="https://via.placeholder.com/40/3b5998/ffffff?text=F" alt="Facebook icon"></a>
+                        <a href="#" target="_blank" aria-label="Ayo Prudent on LinkedIn"><img src="https://via.placeholder.com/40/0077B5/ffffff?text=L" alt="LinkedIn icon"></a>
                     </div>
                 </div>
             </div>
